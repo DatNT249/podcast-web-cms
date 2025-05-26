@@ -66,14 +66,6 @@ const BookDetail = () => {
           <DetailItem label="Tác giả" value={data?.author} isPending={isLoading} />
           <DetailItem label="Mô tả" value={data?.description} isPending={isLoading} />
           <DetailItem
-            status={{
-              text: data?.isPremium ? 'Có' : 'Không',
-              color: data?.isPremium ? 'green' : 'red',
-            }}
-            label="Trả phí"
-            isPending={isLoading}
-          />
-          <DetailItem
             label="Ngày tạo"
             value={formatDate(data?.createdAt as string)}
             isPending={isLoading}
@@ -85,7 +77,7 @@ const BookDetail = () => {
           />
           <DetailItem
             image={{
-              src: data?.url,
+              src: data?.url as string,
               alt: 'Hình ảnh sách',
             }}
             label="Hình ảnh"

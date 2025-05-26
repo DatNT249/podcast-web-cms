@@ -18,17 +18,6 @@ const ChapterFilter = () => {
         hasLine: true,
       },
     },
-    {
-      field: 'isPremium',
-      type: 'select',
-      options: [
-        { label: 'Trả phí', value: "true" },
-        { label: 'Miễn phí', value: "false" },
-      ],
-      placeholder: 'Tìm kiếm theo trả phí',
-      defaultValue: '',
-      sx: { width: 240 },
-    },
   ]
 
   return (

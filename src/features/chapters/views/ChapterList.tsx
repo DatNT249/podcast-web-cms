@@ -1,6 +1,5 @@
 'use client'
 
-import { StatusTag } from '@/libs/components/StatusTag'
 import { ReactTable } from '@/libs/components/Table'
 import { Stack } from '@mui/material'
 import { ColumnDef } from '@tanstack/react-table'
@@ -89,28 +88,6 @@ const ChapterList = () => {
           ...commonCellStyle,
           width: 300,
         },
-      },
-    },
-    {
-      header: 'Trả phí',
-      accessorKey: 'isPremium',
-      meta: {
-        width: 180,
-        headStyle: {
-          padding: '0 16px',
-        },
-        cellStyle: {
-          ...commonCellStyle,
-          width: 180,
-        },
-      },
-      cell: ({ row }) => {
-        return (
-          <StatusTag
-            text={row.original.isPremium == true ? 'Có' : 'Không'}
-            color={row.original.isPremium == true ? 'green' : 'red'}
-          />
-        )
       },
     },
   ]

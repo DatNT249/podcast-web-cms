@@ -41,14 +41,7 @@ const ChapterDetail = () => {
           <DetailItem label="ID" value={data?._id} isPending={isLoading} />
           <DetailItem label="Tên chương" value={data?.name} isPending={isLoading} />
           <DetailItem label="Mô tả" value={data?.description} isPending={isLoading} />
-          <DetailItem
-            status={{
-              text: data?.isPremium ? 'Có' : 'Không',
-              color: data?.isPremium ? 'green' : 'red',
-            }}
-            label="Trả phí"
-            isPending={isLoading}
-          />
+
           <DetailItem
             label="Ngày tạo"
             value={formatDate(data?.createdAt as string)}

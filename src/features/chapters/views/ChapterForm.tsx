@@ -2,7 +2,7 @@
 
 import { DetailItem } from '@/features/article/components'
 import { useBookValueLabel } from '@/features/books/hooks'
-import { FormLayout, Input, RadioGroup, Select, UploadImage } from '@/libs/components/Form'
+import { FormLayout, Input, Select, UploadImage } from '@/libs/components/Form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Stack, Typography } from '@mui/material'
 import { useParams, useRouter } from 'next/navigation'
@@ -11,11 +11,6 @@ import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useChapterCreate, useChapterDetail, useChapterUpdate } from '../hooks'
 import { ChapterCreateInputSchema, ChapterCreateInputType } from '../type'
-
-const options = [
-  { label: 'Có', value: 'true' },
-  { label: 'Không', value: 'false' },
-]
 
 const ChapterForm = () => {
   const router = useRouter()
@@ -33,7 +28,7 @@ const ChapterForm = () => {
       name: '',
       description: '',
       url: undefined,
-      isPremium: true,
+      isPremium: false,
       bookId: '',
     },
     resolver: zodResolver(ChapterCreateInputSchema),
@@ -136,16 +131,6 @@ const ChapterForm = () => {
               </Typography>
             </Stack>
             <UploadImage name="url" control={control} />
-          </Stack>
-
-          <Stack direction={{ xs: 'column', lg: 'row' }} gap={4} marginTop={4}>
-            <RadioGroup
-              control={control}
-              name="isPremium"
-              label="Trả phí"
-              options={options}
-              defaultValue="true"
-            />
           </Stack>
         </Stack>
       </Stack>

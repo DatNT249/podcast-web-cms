@@ -121,26 +121,6 @@ const EpisodeList = () => {
       },
     },
     {
-      header: 'Trả phí',
-      accessorKey: 'isPremium',
-      meta: {
-        width: 180,
-        headStyle: {
-          padding: '8px 16px',
-        },
-        cellStyle: {
-          ...commonCellStyle,
-          width: 150,
-        },
-      },
-      cell: ({ row }) => (
-        <StatusTag
-          text={row.original.isPremium ? 'Có' : 'Không'}
-          color={row.original.isPremium ? 'green' : 'red'}
-        />
-      ),
-    },
-    {
       header: 'Top',
       accessorKey: 'isTop',
       meta: {

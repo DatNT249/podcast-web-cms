@@ -2,7 +2,7 @@
 
 import { DetailItem } from '@/features/article/components'
 import { useChapterValueLabel } from '@/features/chapters/hooks/useChapterValueLabel'
-import { FormLayout, Input, RadioGroup, Select, UploadImage } from '@/libs/components/Form'
+import { FormLayout, Input, Select, UploadImage } from '@/libs/components/Form'
 import { UploadAudio } from '@/libs/components/Form/UploadImg/UploadAudio'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Box, Button, Stack, Typography } from '@mui/material'
@@ -14,7 +14,6 @@ import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useEpisodeCreate, useEpisodeDetail, useEpisodeUpdate } from '../hooks'
 import { EpisodeCreateInputSchema, EpisodeCreateInputType } from '../type'
-import { error } from 'console'
 
 const options = [
   { label: 'Có', value: 'true' },
@@ -40,7 +39,7 @@ const EpisodeForm = () => {
       album: '',
       artist: '',
       description: '',
-      isPremium: true,
+      isPremium: false,
       isTop: true,
       chapterId: '',
       url: undefined,
@@ -72,7 +71,6 @@ const EpisodeForm = () => {
   }
 
   const postAIBook = async (data: AIBookType) => {
-
     try {
       const response = await axios.post('http://localhost:8000/api/sumary/', {
         data,
@@ -81,7 +79,6 @@ const EpisodeForm = () => {
     } catch (err) {
       console.log(err)
     }
-
   }
 
   const { mutate, data: aiData } = useMutation({
@@ -108,10 +105,13 @@ const EpisodeForm = () => {
         { onSuccess: successCallback },
       )
     } else {
-      createEpisode({
-        ...data,
-        description: aiData?.message ? aiData.message : submitData.description,
-      }, { onSuccess: successCallback })
+      createEpisode(
+        {
+          ...data,
+          description: aiData?.message ? aiData.message : submitData.description,
+        },
+        { onSuccess: successCallback },
+      )
     }
   }
 
@@ -265,15 +265,6 @@ const EpisodeForm = () => {
               name="url"
               control={control}
               content="Kéo và thả file âm thanh vào đây hoặc nhấp để chọn"
-            />
-          </Stack>
-          <Stack direction={{ xs: 'column', lg: 'row' }} gap={4} marginTop={4}>
-            <RadioGroup
-              control={control}
-              name="isPremium"
-              label="Trả phí"
-              options={options}
-              defaultValue="true"
             />
           </Stack>
         </Stack>

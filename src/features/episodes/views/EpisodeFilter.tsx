@@ -25,28 +25,6 @@ const EpisodeFilter = () => {
       defaultValue: '',
       sx: { width: 240 },
     },
-    {
-      field: 'isTop',
-      type: 'select',
-      options: [
-        { label: 'Top', value: "true" },
-        { label: 'Không top', value: "false" },
-      ],
-      placeholder: 'Tìm kiếm theo top',
-      defaultValue: '',
-      sx: { width: 240 },
-    },
-    {
-      field: 'isPremium',
-      type: 'select',
-      options: [
-        { label: 'Trả phí', value: "true" },
-        { label: 'Miễn phí', value: "false" },
-      ],
-      placeholder: 'Tìm kiếm theo trả phí',
-      defaultValue: '',
-      sx: { width: 240 },
-    },
   ]
 
   return (

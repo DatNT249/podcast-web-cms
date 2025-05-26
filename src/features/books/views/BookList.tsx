@@ -105,28 +105,6 @@ const BookList = () => {
       },
     },
     {
-      header: 'Trả phí',
-      accessorKey: 'isPremium',
-      meta: {
-        width: 180,
-        headStyle: {
-          padding: '0 16px',
-        },
-        cellStyle: {
-          ...commonCellStyle,
-          width: 180,
-        },
-      },
-      cell: ({ row }) => {
-        return (
-          <StatusTag
-            text={row.original.isPremium == true ? 'Có' : 'Không'}
-            color={row.original.isPremium == true ? 'green' : 'red'}
-          />
-        )
-      },
-    },
-    {
       header: 'Top',
       accessorKey: 'isTop',
       meta: {

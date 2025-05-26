@@ -2,7 +2,7 @@
 
 import { DetailItem } from '@/features/article/components'
 import { useCategoryValueLabel } from '@/features/categories/hooks'
-import { FormLayout, Input, RadioGroup, Select, UploadImage } from '@/libs/components/Form'
+import { FormLayout, Input, Select, UploadImage } from '@/libs/components/Form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { Stack, Typography } from '@mui/material'
 import { useParams, useRouter } from 'next/navigation'
@@ -11,11 +11,6 @@ import { useEffect } from 'react'
 import { SubmitHandler, useForm } from 'react-hook-form'
 import { useBookCreate, useBookDetail, useBookUpdate } from '../hooks'
 import { BookCreateInputSchema, BookCreateInputType } from '../type'
-
-const options = [
-  { label: 'Có', value: 'true' },
-  { label: 'Không', value: 'false' },
-]
 
 const BookForm = () => {
   const router = useRouter()
@@ -33,7 +28,7 @@ const BookForm = () => {
       name: '',
       author: '',
       description: '',
-      isPremium: true,
+      isPremium: false,
       categoryId: '',
       url: '',
     },
@@ -152,16 +147,6 @@ const BookForm = () => {
               name="url"
               control={control}
               content="Kéo và thả file hình ảnh vào đây hoặc nhấp để chọn"
-            />
-          </Stack>
-
-          <Stack direction={{ xs: 'column', lg: 'row' }} gap={4} marginTop={4}>
-            <RadioGroup
-              control={control}
-              name="isPremium"
-              label="Trả phí"
-              options={options}
-              defaultValue="true"
             />
           </Stack>
         </Stack>
