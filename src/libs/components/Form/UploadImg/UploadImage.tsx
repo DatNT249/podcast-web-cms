@@ -1,6 +1,6 @@
 import { uploadImage } from '@/libs/api/form'
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline'
-import { Box, IconButton, Typography } from '@mui/material'
+import { Box, CircularProgress, IconButton, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
 import { useMutation } from '@tanstack/react-query'
 import React, { useCallback, useState } from 'react'
@@ -111,19 +111,25 @@ const UploadImage = ({
 
   return (
     <Box width={width} padding={padding} sx={sx}>
-      <DropzoneContainer {...getRootProps()}>
-        <input {...getInputProps()} id={fieldName} hidden />
-        {!image ? (
-          <DropzoneText variant="body2">{content}</DropzoneText>
-        ) : (
-          <ImagePreview>
-            <img src={image} alt="Preview" style={{ width: '100%', height: 'auto' }} />
-            <RemoveButton color="error" onClick={handleRemoveImage}>
-              <DeleteOutlineIcon />
-            </RemoveButton>
-          </ImagePreview>
-        )}
-      </DropzoneContainer>
+      {isPending ? (
+        <DropzoneContainer>
+          <CircularProgress size={24} />
+        </DropzoneContainer>
+      ) : (
+        <DropzoneContainer {...getRootProps()}>
+          <input {...getInputProps()} id={fieldName} hidden />
+          {!image ? (
+            <DropzoneText variant="body2">{content}</DropzoneText>
+          ) : (
+            <ImagePreview>
+              <img src={image} alt="Preview" style={{ width: '100%', height: 'auto' }} />
+              <RemoveButton color="error" onClick={handleRemoveImage}>
+                <DeleteOutlineIcon />
+              </RemoveButton>
+            </ImagePreview>
+          )}
+        </DropzoneContainer>
+      )}
       {error && (
         <Typography color="error" variant="body2" sx={{ mt: 1 }}>
           {helperText || error.message}

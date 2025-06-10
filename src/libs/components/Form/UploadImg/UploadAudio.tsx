@@ -109,29 +109,29 @@ const UploadAudio = ({
 
   return (
     <Box width={width} padding={padding} sx={sx}>
-      <DropzoneContainer {...getRootProps()}>
-        <input {...getInputProps()} id={fieldName} hidden />
-        {!audio ? (
-          <DropzoneText variant="body2">
-            {content || 'Drag and drop audio file here or click to select'}
-          </DropzoneText>
-        ) : (
-          <>
-            {isPending ? (
-              <CircularProgress size={24} />
-            ) : (
-              <AudioPreview>
-                <audio controls src={audio} style={{ width: '100%' }}>
-                  Your browser does not support the audio element.
-                </audio>
-                <RemoveButton color="error" onClick={handleRemoveAudio}>
-                  <DeleteOutlineIcon />
-                </RemoveButton>
-              </AudioPreview>
-            )}
-          </>
-        )}
-      </DropzoneContainer>
+      {isPending ? (
+        <DropzoneContainer>
+          <CircularProgress size={24} />
+        </DropzoneContainer>
+      ) : (
+        <DropzoneContainer {...getRootProps()}>
+          <input {...getInputProps()} id={fieldName} hidden />
+          {!audio ? (
+            <DropzoneText variant="body2">
+              {content || 'Drag and drop audio file here or click to select'}
+            </DropzoneText>
+          ) : (
+            <AudioPreview>
+              <audio controls src={audio} style={{ width: '100%' }}>
+                Your browser does not support the audio element.
+              </audio>
+              <RemoveButton color="error" onClick={handleRemoveAudio}>
+                <DeleteOutlineIcon />
+              </RemoveButton>
+            </AudioPreview>
+          )}
+        </DropzoneContainer>
+      )}
       {error && (
         <Typography color="error" variant="body2" sx={{ mt: 1 }}>
           {helperText || error.message}
