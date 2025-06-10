@@ -100,7 +100,6 @@ const BookList = () => {
         },
         cellStyle: {
           ...commonCellStyle,
-          width: 300,
         },
       },
     },
