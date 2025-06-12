@@ -65,7 +65,6 @@ const EpisodeDetail = () => {
         <Stack spacing={2}>
           <DetailItem label="ID" value={data?._id} isPending={isLoading} />
           <DetailItem label="Tên tập" value={data?.title} isPending={isLoading} />
-          <DetailItem label="Album" value={data?.album} isPending={isLoading} />
           <DetailItem label="Tác giả" value={data?.artist} isPending={isLoading} />
           <DetailItem label="Mô tả" value={data?.description} isPending={isLoading} />
           <DetailItem

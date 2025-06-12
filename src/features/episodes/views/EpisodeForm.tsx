@@ -52,7 +52,7 @@ const EpisodeForm = () => {
       const { title, album, artist, description, isPremium, isTop, chapterId, artwork } =
         episodeDetail
       setValue('title', title as string)
-      setValue('album', album as string)
+      setValue('album', album ?? '')
       setValue('artist', artist as string)
       setValue('description', description as string)
       setValue('isPremium', isPremium ? true : false)
@@ -141,16 +141,7 @@ const EpisodeForm = () => {
               fullWidth
             />
           </Stack>
-          <Stack direction={{ xs: 'column', lg: 'row' }} gap={4}>
-            <Input
-              control={control}
-              name="album"
-              label="Album"
-              labelLeft
-              placeholder="Album"
-              fullWidth
-            />
-          </Stack>
+
           <Stack direction={{ xs: 'column', lg: 'row' }} gap={4}>
             <Input
               control={control}

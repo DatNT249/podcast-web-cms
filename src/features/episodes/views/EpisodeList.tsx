@@ -82,19 +82,6 @@ const EpisodeList = () => {
       ),
     },
     {
-      header: 'Album',
-      accessorKey: 'album',
-      meta: {
-        headStyle: {
-          padding: '8px 16px',
-        },
-        cellStyle: {
-          ...commonCellStyle,
-          width: 150,
-        },
-      },
-    },
-    {
       header: 'Tác giả',
       accessorKey: 'artist',
       meta: {
