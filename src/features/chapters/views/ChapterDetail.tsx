@@ -1,6 +1,6 @@
 'use client'
 
-import { DetailItem } from '@/features/article/components'
+import { DetailItem } from '@/features/article/components/DetailItem/DetailItem'
 import { Header } from '@/libs/components/Form/Layout/Header'
 import { Modal } from '@/libs/components/Modal'
 import { formatDate } from '@/utils/format'

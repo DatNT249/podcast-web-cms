@@ -209,7 +209,6 @@ const EpisodeForm = () => {
 
               <Button
                 variant="outlined"
-                fontSize={12}
                 onClick={() => {
                   mutate({
                     content: watch('description'),

@@ -2,7 +2,7 @@ import { StatusColorType, StatusTag } from '@/libs/components/StatusTag'
 import { statusColors } from '@/libs/config/theme'
 import { Box, Skeleton, Stack, SxProps, Typography } from '@mui/material'
 import { useState } from 'react'
-import { YoutubeIframe } from '..'
+import { YoutubeIframe } from '../YoutubeVideo/YoutubeVideo'
 
 type DetailItemProps = {
   label: string

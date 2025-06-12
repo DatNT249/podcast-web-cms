@@ -2,7 +2,8 @@ import { Box, FormHelperText } from '@mui/material'
 import React from 'react'
 import { FieldError } from 'react-hook-form'
 import { ZodError } from 'zod'
-import { YoutubeUrlSchema, convertUrlYoutube } from '../..'
+import { convertUrlYoutube } from '../../hooks/convertUrlYoutube'
+import { YoutubeUrlSchema } from '../../type'
 
 interface YoutubeVideoProps {
   youtubeUrl: string | undefined
